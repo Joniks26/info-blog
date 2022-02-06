@@ -1,7 +1,10 @@
 <template>
   <div class="app">
     <h1>Посты</h1>
-    <my-button @click="showDialog" style="margin: 15px 0;" >Создать пост</my-button>
+    <div class="app__btns">
+      <my-button @click="showDialog" style="margin: 15px 0;" >Создать пост</my-button>
+      <my-select/>
+    </div>
     <my-dialog v-model:show="dialogVisible">
       <post-form
           @create="createPost"
@@ -11,7 +14,9 @@
     <post-list
         :posts="posts"
         @remove="removePost"
+        v-if="!isPostsLoading"
     />
+    <div v-else>Загрузка...</div>
   </div>
 </template>
 
@@ -32,6 +37,8 @@ export default {
     return {
       posts: [],
       dialogVisible: false,
+      isPostsLoading: false,
+
     }
   },
   methods: {
@@ -47,13 +54,19 @@ export default {
     },
     async fetchPosts () {
       try{
+        this.isPostsLoading = true
         const response = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=10');
         this.posts = response.data;
       } catch (e) {
         alert('Ошибка')
+      } finally {
+        this.isPostsLoading = false;
       }
     }
   },
+  mounted() {
+    this.fetchPosts();
+  }
 }
 
 </script>
@@ -67,6 +80,11 @@ export default {
 
 .app {
   padding: 20px;
+}
+.app__btns {
+  display: flex;
+  justify-content: space-between;
+
 }
 
 </style>
