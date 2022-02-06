@@ -1,27 +1,23 @@
 <template>
   <form @submit.prevent>
     <h4>Добавить пост</h4>
-    <input
+    <my-input
         v-model="post.title"
-        class="input"
         type="text"
-        placeholder="Название">
-    <input
+        placeholder="Название" />
+    <my-input
         v-model="post.body"
-        class="input"
         type="text"
-        placeholder="Описание">
-    <Button
-        style="align-self: flex-end; margin-top: 15px"
+        placeholder="Описание"/>
+    <my-button
+        class="add_btn"
         @click="createPost">Добавить
-    </Button>
+    </my-button>
   </form>
 </template>
 
 <script>
-import Button from "@/comnponents/UI/Button";
 export default {
-  components: {Button},
   data(){
     return{
       post:{
@@ -49,11 +45,10 @@ form {
   flex-direction: column;
 
 }
-.input {
-  width: 100%;
-  border: 1px solid teal;
-  padding: 10px 15px;
-  margin-top: 15px;
+
+.add_btn {
+  align-self: flex-end;
+  margin-top: 15px
 }
 
 </style>
