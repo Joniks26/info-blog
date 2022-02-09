@@ -31,4 +31,7 @@ export default {
   align-items: center;
   justify-content: space-between;
 }
+.post__btns {
+
+}
 </style>
