@@ -3,8 +3,8 @@
     <div @click="$router.push('/')">Info Blog</div>
     <div class="navbar__btns">
       <my-button @click="$router.push('/posts')">Посты</my-button>
-      <my-button style="margin-left: 20px;" @click="$router.push('/social-credits')">社會貸款</my-button>
       <my-button style="margin-left: 20px;" @click="$router.push('/store')">Store</my-button>
+      <my-button style="margin-left: 20px;" @click="$router.push('/composition')">Composition</my-button>
     </div>
   </div>
 </template>

@@ -16,7 +16,7 @@ export const postModule = {
     }),
     getters: {
         sortedPost(state) {
-            return [...state.posts].sort((post1, post2) => post1[this.selectedSort]?.localeCompare(post2[state.selectedSort]))
+            return [...state.posts].sort((post1, post2) => post1[state.selectedSort]?.localeCompare(post2[state.selectedSort]))
         },
         sortedAndSearchedPost(state, getters) {
             return getters.sortedPost.filter(post => post.title.toLowerCase().includes(state.searchQuery.toLowerCase()))
@@ -76,5 +76,5 @@ export const postModule = {
             }
         }
     },
-    namespace: true
+    namespaced: true
 }

@@ -1,9 +1,9 @@
 import Main from "@/pages/Main";
 import {createRouter, createWebHistory} from "vue-router";
 import PostsPage from "@/pages/PostsPage";
-import SocialCredits from "@/pages/SocialCredits";
 import PostPage from "@/pages/PostPage";
 import PostsPageWithStore from "@/pages/PostsPageWithStore";
+import PostsPageCompositionAPI from "@/pages/PostsPageCompositionAPI";
 
 
 const routes = [
@@ -16,16 +16,16 @@ const routes = [
         component: PostsPage
     },
     {
-        path: '/social-credits',
-        component: SocialCredits
-    },
-    {
         path: '/posts/:id',
         component: PostPage
     },
     {
         path: '/store',
         component: PostsPageWithStore
+    },
+    {
+        path: '/composition',
+        component: PostsPageCompositionAPI
     },
 
 ]
